@@ -1,37 +1,17 @@
 const { remote } = require('electron');
-const coinListDiv = document.getElementById('coin-list');
+
 const selectedCoinsDiv = document.getElementById('selected-coins');
+const addCoinButton = document.getElementById('add-coin-button');
+const coinDropdown = document.getElementById('coin-dropdown');
+const coinSelect = document.getElementById('coin-select');
 const resetButton = document.getElementById('reset-button');
 const closeButton = document.getElementById('close-button');
 
-// Predefined list of available coins
-const availableCoins = ["BTC", "ETH", "SOL", "XRP", "ADA"];
 let selectedCoins = new Map();
 
-// Create list of available coins with + buttons
-function renderCoinList() {
-    coinListDiv.innerHTML = '';
-    availableCoins.forEach(coin => {
-        const coinRow = document.createElement('div');
-        coinRow.className = "flex justify-between items-center bg-gray-100 p-2 rounded";
-
-        const coinName = document.createElement('span');
-        coinName.textContent = coin;
-
-        const addButton = document.createElement('button');
-        addButton.textContent = '+';
-        addButton.className = "no-drag bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded";
-        addButton.onclick = () => addCoin(coin);
-
-        coinRow.appendChild(coinName);
-        coinRow.appendChild(addButton);
-        coinListDiv.appendChild(coinRow);
-    });
-}
-
-// Add coin to selected list
+// Add selected coin
 async function addCoin(coin) {
-    if (selectedCoins.has(coin)) return; // Already selected
+    if (!coin || selectedCoins.has(coin)) return;
 
     const coinDiv = document.createElement('div');
     coinDiv.id = `selected-${coin}`;
@@ -58,7 +38,7 @@ async function addCoin(coin) {
     }
 }
 
-// Remove single coin
+// Remove a selected coin
 function removeCoin(coin) {
     const coinDiv = selectedCoins.get(coin);
     if (coinDiv) {
@@ -70,7 +50,7 @@ function removeCoin(coin) {
     }
 }
 
-// Fetch live USD spot price
+// Fetch the USD price
 async function fetchPrice(coinSymbol) {
     try {
         const res = await fetch(`https://api.coinbase.com/v2/prices/${coinSymbol}-USD/spot`);
@@ -82,7 +62,7 @@ async function fetchPrice(coinSymbol) {
     }
 }
 
-// Update price for a single selected coin
+// Update price for one coin
 async function updatePrice(coin) {
     const coinDiv = selectedCoins.get(coin);
     if (!coinDiv) return;
@@ -97,10 +77,23 @@ async function updatePrice(coin) {
     }
 }
 
-// Refresh all selected coin prices every 60 seconds
+// Refresh all prices every 60 seconds
 setInterval(() => {
     selectedCoins.forEach((_, coin) => updatePrice(coin));
 }, 60000);
+
+// Add Coin Button behavior
+addCoinButton.addEventListener('click', () => {
+    coinDropdown.classList.toggle('hidden');
+});
+
+// Coin Select behavior
+coinSelect.addEventListener('change', (e) => {
+    const selectedCoin = e.target.value;
+    addCoin(selectedCoin);
+    coinDropdown.classList.add('hidden');
+    coinSelect.value = "";
+});
 
 // Reset button
 resetButton.addEventListener('click', () => {
@@ -114,6 +107,3 @@ closeButton.addEventListener('click', () => {
     let window = remote.getCurrentWindow();
     window.close();
 });
-
-// Initial setup
-renderCoinList();

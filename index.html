@@ -5,30 +5,43 @@
     <title>Crypto Tracker</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-transparent flex flex-col items-center justify-start min-h-screen p-0">
+<body class="bg-transparent flex flex-col items-center justify-start min-h-screen p-2">
 
-<!-- Draggable top bar with close button -->
+<!-- Draggable Top Bar with Close -->
 <div id="drag-region" class="flex items-center justify-between w-full h-8 bg-gray-300 rounded-t-2xl p-2">
     <div class="text-gray-600 text-sm">Crypto Tracker</div>
     <button id="close-button" class="no-drag text-gray-700 hover:text-red-500 text-lg font-bold">❌</button>
 </div>
 
-<div class="w-full max-w-xs bg-white rounded-b-2xl shadow-lg p-4 space-y-6">
-
-    <!-- Available Coins -->
-    <div id="coin-list" class="space-y-2">
-        <!-- Coins + "+" buttons will be generated here -->
-    </div>
-
-    <h2 class="text-xl font-bold text-center">Selected Coins</h2>
+<!-- Main Widget -->
+<div class="w-full max-w-xs bg-white rounded-b-2xl shadow-lg p-4 space-y-4">
 
     <!-- Selected Coins -->
     <div id="selected-coins" class="space-y-2 text-center">
         <p class="text-gray-500">No coins selected yet.</p>
     </div>
 
+    <!-- Add Coin Button -->
+    <div class="flex justify-center">
+        <button id="add-coin-button" class="no-drag bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+            ➕ Add Coin
+        </button>
+    </div>
+
+    <!-- Hidden Dropdown -->
+    <div id="coin-dropdown" class="hidden mt-2">
+        <select id="coin-select" class="w-full p-2 rounded border border-gray-300">
+            <option value="" disabled selected>Select a coin</option>
+            <option value="BTC">Bitcoin (BTC)</option>
+            <option value="ETH">Ethereum (ETH)</option>
+            <option value="SOL">Solana (SOL)</option>
+            <option value="XRP">Ripple (XRP)</option>
+            <option value="ADA">Cardano (ADA)</option>
+        </select>
+    </div>
+
     <!-- Reset Button -->
-    <div class="flex justify-center pt-4">
+    <div class="flex justify-center pt-2">
         <button id="reset-button" class="no-drag bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
             Reset
         </button>
@@ -37,11 +50,9 @@
 </div>
 
 <style>
-    /* Makes top region draggable */
     #drag-region {
         -webkit-app-region: drag;
     }
-    /* Makes buttons not draggable */
     .no-drag {
         -webkit-app-region: no-drag;
     }
