@@ -15,7 +15,7 @@ async function addCoin(coin) {
 
     const coinDiv = document.createElement('div');
     coinDiv.id = `selected-${coin}`;
-    coinDiv.className = "flex justify-between items-center bg-green-100 p-2 rounded";
+    coinDiv.className = "flex justify-between items-center bg-slate-700 p-2 rounded"; // UPDATED THIS!
 
     const coinName = document.createElement('span');
     coinName.innerHTML = `🪙 <strong>${coin}:</strong> Loading...`;
@@ -37,6 +37,7 @@ async function addCoin(coin) {
         selectedCoinsDiv.querySelector('p').remove();
     }
 }
+
 
 // Remove a selected coin
 function removeCoin(coin) {

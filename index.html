@@ -7,30 +7,30 @@
 </head>
 <body class="bg-transparent flex flex-col items-center justify-start min-h-screen p-2">
 
-<!-- Draggable Top Bar with Close -->
-<div id="drag-region" class="flex items-center justify-between w-full h-8 bg-gray-300 rounded-t-2xl p-2">
-    <div class="text-gray-600 text-sm">Crypto Tracker</div>
-    <button id="close-button" class="no-drag text-gray-700 hover:text-red-500 text-lg font-bold">❌</button>
+<!-- Draggable Top Bar -->
+<div id="drag-region" class="flex items-center justify-between w-full h-8 bg-slate-900 rounded-t-2xl p-2">
+    <div class="text-white text-sm">Crypto Tracker</div>
+    <button id="close-button" class="no-drag text-white hover:text-red-400 text-lg font-bold">❌</button>
 </div>
 
 <!-- Main Widget -->
-<div class="w-full max-w-xs bg-white rounded-b-2xl shadow-lg p-4 space-y-4">
+<div class="w-full max-w-xs bg-slate-800 text-white rounded-b-2xl shadow-lg p-4 space-y-4">
 
     <!-- Selected Coins -->
     <div id="selected-coins" class="space-y-2 text-center">
-        <p class="text-gray-500">No coins selected yet.</p>
+        <p class="text-gray-400">No coins selected yet.</p>
     </div>
 
     <!-- Add Coin Button -->
     <div class="flex justify-center">
-        <button id="add-coin-button" class="no-drag bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+        <button id="add-coin-button" class="no-drag bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded">
             ➕ Add Coin
         </button>
     </div>
 
     <!-- Hidden Dropdown -->
     <div id="coin-dropdown" class="hidden mt-2">
-        <select id="coin-select" class="w-full p-2 rounded border border-gray-300">
+        <select id="coin-select" class="w-full p-2 rounded border border-gray-700 bg-slate-700 text-white">
             <option value="" disabled selected>Select a coin</option>
             <option value="BTC">Bitcoin (BTC)</option>
             <option value="ETH">Ethereum (ETH)</option>
@@ -42,7 +42,7 @@
 
     <!-- Reset Button -->
     <div class="flex justify-center pt-2">
-        <button id="reset-button" class="no-drag bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+        <button id="reset-button" class="no-drag bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
             Reset
         </button>
     </div>
@@ -60,4 +60,5 @@
 
 <script src="renderer.js"></script>
 </body>
+
 </html>
