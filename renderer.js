@@ -81,7 +81,7 @@ async function updatePrice(coin) {
 // Refresh all prices every 60 seconds
 setInterval(() => {
     selectedCoins.forEach((_, coin) => updatePrice(coin));
-}, 60000);
+}, 3000);
 
 // Add Coin Button behavior
 addCoinButton.addEventListener('click', () => {
