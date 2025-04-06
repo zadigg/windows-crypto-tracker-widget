@@ -69,6 +69,19 @@ crypto-widget-tracker/
 - Sound alert when price changes a lot.
 - Custom price threshold notifications.
 
+## ☕ Support Me
+
+If you like this project and want to support my work:
+
+- **Buy Me a Coffee:** [buymeacoffee.com/abelnegash](https://buymeacoffee.com/abelnegash)
+- **Cash App:** `$AbelKibebe`
+
+Every coffee keeps me coding stronger! 💻☕💙
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/abelnegash)
+
+
 ## 📜 License
 This project is free for personal use.  
 Built with 💙 by Abel.
+
