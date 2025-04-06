@@ -8,7 +8,7 @@ const timeframeSelect = document.getElementById('timeframe-select');
 
 let selectedCoins = new Map();
 let priceHistory = {}; // Store price history
-let selectedTimeframeMinutes = 1; // Default to 5 min
+let selectedTimeframeMinutes = 5; // Default to 5 min
 
 async function addCoin(coin) {
     if (!coin || selectedCoins.has(coin)) return;
