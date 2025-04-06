@@ -28,7 +28,7 @@
         </button>
     </div>
 
-    <!-- Hidden Dropdown -->
+    <!-- Dropdown (hidden) -->
     <div id="coin-dropdown" class="hidden mt-2">
         <select id="coin-select" class="w-full p-2 rounded border border-gray-700 bg-slate-700 text-white">
             <option value="" disabled selected>Select a coin</option>
@@ -37,6 +37,15 @@
             <option value="SOL">Solana (SOL)</option>
             <option value="XRP">Ripple (XRP)</option>
             <option value="ADA">Cardano (ADA)</option>
+        </select>
+    </div>
+
+    <!-- Timeframe Selector -->
+    <div class="flex justify-center">
+        <select id="timeframe-select" class="no-drag w-full p-2 rounded border border-gray-700 bg-slate-700 text-white">
+            <option value="5">5 Minutes</option>
+            <option value="10">10 Minutes</option>
+            <option value="20">20 Minutes</option>
         </select>
     </div>
 
@@ -60,5 +69,4 @@
 
 <script src="renderer.js"></script>
 </body>
-
 </html>

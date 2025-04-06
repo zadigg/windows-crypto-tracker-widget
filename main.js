@@ -4,8 +4,8 @@ const path = require('path');
 function createWindow() {
     const mainWindow = new BrowserWindow({
         width: 320,
-        height: 500,
-        frame: false, // Borderless window
+        height: 560,
+        frame: false,
         transparent: true,
         alwaysOnTop: true,
         resizable: false,
@@ -16,7 +16,7 @@ function createWindow() {
     });
 
     mainWindow.loadFile('index.html');
-    // mainWindow.webContents.openDevTools({ mode: 'detach' }); // Optional: for debugging
+    // mainWindow.webContents.openDevTools({ mode: 'detach' });
 }
 
 app.whenReady().then(() => {
