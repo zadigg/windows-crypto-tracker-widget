@@ -2,6 +2,8 @@
 
 A **beautiful** and **minimal** Electron app to track selected cryptocurrency prices **live**, see **percentage changes** over time, and stay **always on top** of your desktop.
 
+![img_2.png](img_2.png)
+
 ---
 
 ## 📸 Features

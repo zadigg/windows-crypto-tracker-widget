@@ -17,7 +17,10 @@ function createWindow() {
 
     mainWindow.loadFile('index.html');
 
-    // ⭐ Listen for close event from renderer
+    // ✅ Always open DevTools automatically
+    // mainWindow.webContents.openDevTools({ mode: 'detach' });
+
+    // Listen for close event from renderer
     ipcMain.on('close-window', () => {
         mainWindow.close();
     });
