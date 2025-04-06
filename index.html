@@ -67,6 +67,17 @@
     }
 </style>
 
+<!-- 🛠️ Add this Script -->
+<script>
+    const { ipcRenderer } = require('electron');
+
+    document.getElementById('close-button').addEventListener('click', () => {
+        ipcRenderer.send('close-window');   // 🔥 Send close command to main process
+    });
+</script>
+
+<!-- Your app logic -->
 <script src="renderer.js"></script>
+
 </body>
 </html>

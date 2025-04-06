@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
 function createWindow() {
@@ -16,11 +16,16 @@ function createWindow() {
     });
 
     mainWindow.loadFile('index.html');
-    // mainWindow.webContents.openDevTools({ mode: 'detach' });
+
+    // ⭐ Listen for close event from renderer
+    ipcMain.on('close-window', () => {
+        mainWindow.close();
+    });
 }
 
 app.whenReady().then(() => {
     createWindow();
+
     app.on('activate', function () {
         if (BrowserWindow.getAllWindows().length === 0) createWindow();
     });

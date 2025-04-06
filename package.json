@@ -1,11 +1,40 @@
 {
   "name": "crypto-widget",
   "version": "1.0.0",
+  "description": "A live crypto tracker widget for Windows.",
+  "author": "Abel",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win --x64"
+  },
+  "build": {
+    "appId": "com.abel.crypto-widget",
+    "productName": "Crypto Tracker",
+    "files": [
+      "**/*"
+    ],
+    "forceCodeSigning": false,
+    "win": {
+      "target": "nsis",
+      "signAndEditExecutable": false,
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true
+    },
+    "mac": {
+      "target": []
+    },
+    "linux": {
+      "target": []
+    }
   },
   "devDependencies": {
-    "electron": "^29.4.6"
+    "electron": "^29.4.6",
+    "electron-builder": "^26.0.12"
   }
 }
