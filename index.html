@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crypto Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-transparent flex flex-col items-center justify-start min-h-screen p-0">
+
+<!-- Draggable top bar with close button -->
+<div id="drag-region" class="flex items-center justify-between w-full h-8 bg-gray-300 rounded-t-2xl p-2">
+    <div class="text-gray-600 text-sm">Crypto Tracker</div>
+    <button id="close-button" class="no-drag text-gray-700 hover:text-red-500 text-lg font-bold">❌</button>
+</div>
+
+<div class="w-full max-w-xs bg-white rounded-b-2xl shadow-lg p-4 space-y-6">
+
+    <!-- Available Coins -->
+    <div id="coin-list" class="space-y-2">
+        <!-- Coins + "+" buttons will be generated here -->
+    </div>
+
+    <h2 class="text-xl font-bold text-center">Selected Coins</h2>
+
+    <!-- Selected Coins -->
+    <div id="selected-coins" class="space-y-2 text-center">
+        <p class="text-gray-500">No coins selected yet.</p>
+    </div>
+
+    <!-- Reset Button -->
+    <div class="flex justify-center pt-4">
+        <button id="reset-button" class="no-drag bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+            Reset
+        </button>
+    </div>
+
+</div>
+
+<style>
+    /* Makes top region draggable */
+    #drag-region {
+        -webkit-app-region: drag;
+    }
+    /* Makes buttons not draggable */
+    .no-drag {
+        -webkit-app-region: no-drag;
+    }
+</style>
+
+<script src="renderer.js"></script>
+</body>
+</html>
